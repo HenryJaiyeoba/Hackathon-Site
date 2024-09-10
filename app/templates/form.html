@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hackathon Registration</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/static/styles/form.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/css/multi-select-tag.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.1.0/dist/js/multi-select-tag.js"></script>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <div class="container">
+      <h1 class="logo">
+        Code<span style="color: var(--secondary-color)">Clash</span>
+      </h1>
+      <div class="form-container">
+        <form
+          id="registration-form"
+          action="{{ url_for('form')}}"
+          method="post"
+        >
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fname" required />
+            <div class="error-message" id="fullname-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+            <div class="error-message" id="email-error"></div>
+          </div>
+          <div class="form-group">
+            <label for="team-name">Team Name (Optional)</label>
+            <input type="text" id="team-name" name="team-name" />
+          </div>
+          <div class="form-group">
+            <label for="skills">Skills</label>
+            <select id="skills" name="skills" multiple required>
+              <option value="web-development">Web Development</option>
+              <option value="mobile-development">Mobile Development</option>
+              <option value="machine-learning">Machine Learning</option>
+              <option value="data-science">Data Science</option>
+              <option value="cybersecurity">Cybersecurity</option>
+              <option value="blockchain">Blockchain</option>
+              <option value="ui-ux-design">UI/UX Design</option>
+            </select>
+            <div class="error-message" id="skills-error"></div>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Particles.js configuration
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#8A2BE2" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: true },
+          size: { value: 3, random: true },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#8A2BE2",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
+            resize: true,
+          },
+          modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 },
+          },
+        },
+        retina_detect: true,
+      });
+
+      // Form validation
+
+      new MultiSelectTag("skills", {
+        rounded: true, // default true
+        shadow: true, // default false
+        placeholder: "Search", // default Search...
+        tagColor: {
+          textColor: "#1a1a1a",
+          borderColor: "#4b0082",
+          bgColor: "#e6e6fa",
+        },
+        onChange: function (values) {
+          console.log(values);
+        },
+      });
+    </script>
+  </body>
+</html>

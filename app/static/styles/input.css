@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  --primary-purple: #8a2be2;
+  --secondary-purple: #9370db;
+  --dark-purple: #4b0082;
+  --light-purple: #e6e6fa;
+  --black: #000000;
+  --dark-gray: #1a1a1a;
+  --transition: all 0.3s ease;
+  --nude: #ffe6c6;
+  --button-green: rgb(65, 99, 65);
+  --dark-button-green: rgb(44, 67, 44);
+  --light-green: rgb(243, 250, 243);
+}
+
+body {
+  background-color: black;
+  color: var(--light-purple);
+  transition: var(--transition);
+}
+
+body * {
+  font-family: monospace;
+}
+
+header {
+  margin-top: 30px;
+  border: 1px solid gray;
+  width: 80%;
+  margin-left: 10%;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.timer-container {
+  margin: 15px 0px;
+}
+
+.white-green-text {
+  color: white !important;
+  text-shadow: 0px 0px 2px black;
+}
+
+.navbar-container a {
+  color: var(--light-purple);
+}
+
+.navbar-container a:hover {
+  color: var(--primary-purple);
+  border-bottom: 2px solid var(--primary-purple);
+}
+
+.navbar-container .logo:hover {
+  border-bottom: none;
+}
+
+.footer-container {
+  color: var(--light-purple);
+}
+
+.neumorphic {
+  background: linear-gradient(145deg, #1e1e1e, #232323);
+  box-shadow: 8px 8px 16px #0a0a0a, -8px -8px 16px #2a2a2a;
+  border: 1px solid white;
+}
+
+.neumorphic-inset {
+  background: linear-gradient(145deg, #232323, #1e1e1e);
+  box-shadow: inset 8px 8px 16px #0a0a0a, inset -8px -8px 16px #2a2a2a;
+}
+
+.btn-primary {
+  background-color: var(--primary-purple);
+  color: var(--light-purple);
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-purple);
+  transform: translateY(-2px);
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.timeline-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline-item {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+}
+
+.prize-card {
+  perspective: 1000px;
+}
+
+.prize-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.prize-card:hover .prize-card-inner {
+  transform: rotateY(180deg);
+}
+
+.prize-card-front,
+.prize-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.prize-card-back {
+  transform: rotateY(180deg);
+}
+
+#custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-purple);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.dark-mode {
+  background-color: var(--light-green);
+  color: var(--dark-button-green);
+}
+
+body.dark-mode * {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+body.dark-mode .main-section * {
+  font-weight: 700;
+}
+
+.dark-mode .main-section * {
+  /* text-shadow: 1px 1px 1px rgb(127, 177, 127); */
+}
+
+.dark-mode header {
+  background-color: var(--light-green);
+}
+
+.dark-mode header > nav a {
+  color: var(--button-green);
+}
+
+.dark-mode header > nav a:hover {
+  color: var(--dark-button-green);
+  border-bottom: 2px solid var(--dark-button-green);
+}
+
+.dark-mode .neumorphic {
+  border: 1px solid var(--button-green);
+  background: linear-gradient(145deg, #d4d4d4, #fcfcfc);
+  box-shadow: none;
+}
+
+.dark-mode form > div {
+  border: 2px solid var(--dark-button-green);
+}
+
+.dark-mode ::placeholder {
+  color: var(--dark-button-green);
+}
+
+.dark-mode .neumorphic-inset {
+  background: linear-gradient(145deg, #fcfcfc, #d4d4d4);
+  box-shadow: none;
+}
+
+.dark-mode .btn-primary {
+  background-color: var(--button-green);
+  color: white;
+}
+
+.dark-mode .btn-primary:hover {
+  background-color: var(--dark-button-green);
+  color: white;
+}
+
+.dark-mode footer {
+  background: var(--button-green);
+}
+.dark-mode #custom-cursor {
+  border: 2px solid var(--dark-button-green);
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
